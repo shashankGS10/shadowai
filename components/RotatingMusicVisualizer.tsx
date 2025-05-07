@@ -12,7 +12,7 @@ const START_RADIUS = 200; // Starting radius for the center circle
 
 // --- COLOR UTILITY: HSV to RGB for rainbow effect ---
 function HSVtoRGB(h: number, s: number, v: number) {
-  let f = (n: number, k = (n + h / 60) % 6) =>
+  const f = (n: number, k = (n + h / 60) % 6) =>
     v - v * s * Math.max(Math.min(k, 4 - k, 1), 0);
   return `rgb(${f(5) * 255},${f(3) * 255},${f(1) * 255})`;
 }
@@ -23,10 +23,9 @@ export default function RotatingMusicVisualizer() {
   const [heights, setHeights] = useState<number[]>(
     Array.from({ length: BARS }, () => MIN_BAR_HEIGHT)
   );
-  const frameRef = useRef<number>();
+  const frameRef = useRef<number | null>(null);
 
   useEffect(() => {
-    let lastHeights = heights;
     let t = 0;
 
     function animate() {

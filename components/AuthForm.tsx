@@ -1,6 +1,7 @@
+
 "use client";
 import { z } from "zod";
-import React,{useState} from "react";
+import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "./ui/button";
@@ -51,7 +52,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
         window.location.href = "/dashboard";
       } else {
         // Sign up with Supabase
-        const { data, error } = await supabase.auth.signUp({
+        const { error } = await supabase.auth.signUp({
           email: values.email,
           password: values.password,
           options: {

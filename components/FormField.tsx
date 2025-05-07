@@ -4,11 +4,12 @@ import {FormField,
     FormItem,
     FormLabel,
     FormMessage,
-    FormControl,FormDescription
+    FormControl
   } from "./ui/form";
   import { Input } from "./ui/input";
 // import { text } from 'stream/consumers';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const FormFIeld = ({ control, name, label, placeholder, type }: { 
     control: any; 
     name: string; 
@@ -25,9 +26,6 @@ const FormFIeld = ({ control, name, label, placeholder, type }: {
                 <FormControl>
                     <Input placeholder={placeholder} type={type} {...field} />
                 </FormControl>
-                {/* <FormDescription>
-                    {description}
-                </FormDescription> */}
                 <FormMessage />
             </FormItem>
         )}
