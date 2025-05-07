@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mona_Sans } from "next/font/google";
 import "./globals.css";
-import ToggleButton from "@/shadowai/components/ToggleButton";
+import ToggleButton from "../components/ToggleButton";
 
 
 const monoSans = Mona_Sans({

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import { useThemeStore } from "../../store/themeStore";
+import React, { useEffect } from "react";
+import { useThemeStore } from "../store/themeStore";
 
 export default function ToggleButton() {
   const { isDark, toggleTheme, setDark } = useThemeStore();

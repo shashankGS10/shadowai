@@ -8,8 +8,10 @@ import { Form } from "./ui/form";
 import FormField from "./FormField";
 import Image from "next/image";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
-import { supabase } from "@/shadowai/lib/supabase";
+import { supabase } from "../lib/supabase";
+
+// Define the FormType type
+type FormType = "sign-in" | "sign-up";
 
 const authFormSchema = (type: FormType) => {
   return z.object({
@@ -21,9 +23,6 @@ const authFormSchema = (type: FormType) => {
 
 const AuthForm = ({ type }: { type: FormType }) => {
   
-  // const [isGoogleLoading, setIsGoogleLoading] = useState(false);
-  // const [isSubmittingForm, setIsSubmittingForm] = useState(false);
-  
   const formSchema = authFormSchema(type);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,10 +33,6 @@ const AuthForm = ({ type }: { type: FormType }) => {
     },
   });
 
-  const handleGoogleSignIn = () => {
-    setIsGoogleLoading(true);
-    signIn("google", { callbackUrl: "/dashboard" });
-  };
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {

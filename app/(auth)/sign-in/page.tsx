@@ -1,6 +1,6 @@
 import React from 'react'
-import RotatingMusicVisualizer from "@/shadowai/components/RotatingMusicVisualizer";
-import AuthForm from "@/shadowai/components/AuthForm";
+import RotatingMusicVisualizer from "../../../components/RotatingMusicVisualizer";
+import AuthForm from "../../../components/AuthForm";
 
 const SignIn = () => (
   <div className="relative flex items-center justify-center min-h-screen">
